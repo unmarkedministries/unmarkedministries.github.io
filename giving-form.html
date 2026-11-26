@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Giving Form | Unmarked Ministries</title>
+<meta name="description" content="Give to Unmarked Ministries. Fill out our giving form online or print it to sign and mail. Join The 120 and help survivors of sex trafficking live unmarked and free.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap">
+<style>
+:root{--teal:#2F5D5A;--teal-dk:#24403E;--mist:#F3F8F7;--line:#C7D8D5;--gold:#C9A66B;--gold-dk:#8A6D3B;--ink:#24403E;--body:#3D5755}
+*{box-sizing:border-box}
+body{margin:0;font-family:Jost,Arial,sans-serif;color:var(--ink);background:var(--mist);-webkit-font-smoothing:antialiased}
+a{color:var(--teal)}
+header{background:#fff;border-bottom:1px solid #E4ECEA}
+.top{max-width:880px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand b{display:block;font-family:Lora,Georgia,serif;font-style:italic;font-weight:500;font-size:26px;color:var(--teal);line-height:1}
+.brand small{display:block;font-size:10px;letter-spacing:6px;color:var(--gold-dk);margin-top:3px}
+.back{font-size:15px;text-decoration:none}
+main{max-width:880px;margin:0 auto;padding:48px 24px 72px}
+.sheet{background:#fff;border-radius:20px;padding:48px;display:flex;flex-direction:column;gap:36px}
+h1,h2,h3{font-family:Lora,Georgia,serif;font-weight:500;color:var(--teal);margin:0}
+h1{font-size:clamp(30px,4vw,40px)}
+h2{font-size:24px;padding-bottom:10px;border-bottom:1.5px solid var(--gold)}
+p{margin:0;line-height:1.65}
+.eyebrow{font-size:13px;letter-spacing:4px;color:var(--gold-dk);font-weight:500;text-transform:uppercase}
+.mission{font-family:Lora,Georgia,serif;font-style:italic;font-size:18px;color:var(--teal)}
+.facts{display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:16px}
+.facts div{padding:10px 16px;border-bottom:1px solid #E4ECEA}
+.facts div:nth-child(odd){background:var(--mist);color:var(--body);font-weight:500}
+.facts div:nth-last-child(-n+2){border-bottom:0}
+.note{font-size:15px;color:var(--body)}
+fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+legend{font-family:Lora,Georgia,serif;font-size:19px;color:var(--teal);margin-bottom:12px;padding:0}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.full{grid-column:1/-1}
+label.f{display:flex;flex-direction:column;gap:6px;font-size:15px;font-weight:500;color:var(--teal)}
+input[type=text],input[type=email],input[type=tel],input[type=date]{font:inherit;font-size:16px;color:var(--ink);padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;width:100%}
+input:focus{outline:2px solid #7FA9A3;border-color:#7FA9A3}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;align-items:flex-start;gap:12px;font-size:16px;line-height:1.5;cursor:pointer}
+.opt input[type=radio]{width:20px;height:20px;margin:2px 0 0;accent-color:var(--teal);flex:none}
+.opt .inline{display:inline-block;width:110px;padding:4px 10px;margin:0 4px;font:inherit;font-size:16px;border:1px solid var(--line);border-radius:8px}
+.sig{display:grid;gap:16px;grid-template-columns:2fr 1fr}
+.actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.btn{display:inline-block;text-decoration:none;padding:15px 30px;border-radius:999px;font:500 17px Jost,Arial,sans-serif;border:1.5px solid var(--teal);cursor:pointer}
+.solid{background:var(--teal);color:#fff}.solid:hover{background:var(--teal-dk)}
+.line{background:#fff;color:var(--teal)}.line:hover{background:var(--mist)}
+.thanks{font-family:Lora,Georgia,serif;font-style:italic;font-size:19px;color:var(--teal);text-align:center}
+@media (max-width:640px){.sheet{padding:28px 20px}.grid,.sig{grid-template-columns:1fr}.facts{grid-template-columns:1fr}.facts div:nth-child(odd){border-bottom:0;padding-bottom:2px}}
+/* Print: a clean, signable paper form */
+@media print{
+  @page{margin:0.5in 0.6in}
+  body{background:#fff;font-size:11pt}
+  header .back,.actions,.screen-only{display:none!important}
+  header{border:0}
+  main{padding:0}
+  .sheet{padding:0;border-radius:0;gap:18px}
+  h2{font-size:15pt}
+  .facts{font-size:10pt}.facts div{padding:5px 10px}
+  input[type=text],input[type=email],input[type=tel],input[type=date]{border:0;border-bottom:1px solid #000;border-radius:0;padding:10px 2px 2px;min-height:26px}
+  .sig input{min-height:34px}
+  .opt{font-size:11pt}
+  fieldset{break-inside:avoid}
+  form{break-before:page;gap:9px!important}
+  fieldset{gap:6px}
+  legend{font-size:12.5pt;margin-bottom:4px}
+  .opts{gap:4px}
+  .grid,.sig{gap:6px 16px}
+  label.f{font-size:9.5pt;gap:0}
+  .opt .inline{border:0;border-bottom:1px solid #000;border-radius:0;width:90px}
+  ::placeholder{color:transparent}
+  .thanks{font-size:11pt;margin-top:4px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <a class="brand" href="/">
+      <svg width="44" height="44" viewBox="0 0 230 230" aria-hidden="true"><circle cx="115" cy="115" r="100" fill="#7FA9A3"/><circle cx="115" cy="115" r="110" fill="none" stroke="#C9A66B" stroke-width="7" stroke-linecap="round" stroke-dasharray="0.1 12.8"/><path d="M55 117 C77 83 155 83 177 117 C147 101 87 101 55 117 Z" fill="#fff" transform="rotate(-14 55 117)"/><path d="M55 127 L175 127 C163 161 67 161 55 127 Z" fill="#fff"/><circle cx="115" cy="112" r="16" fill="#fff" stroke="#C9A66B" stroke-width="2.6"/></svg>
+      <span><b>Unmarked</b><small>MINISTRIES</small></span>
+    </a>
+    <a class="back" href="/#give">← Back to the website</a>
+  </div>
+</header>
+
+<main>
+<div class="sheet">
+  <div style="display:flex;flex-direction:column;gap:12px">
+    <p class="eyebrow">Unmarked Ministries, Inc.</p>
+    <h1>Giving Form</h1>
+    <p class="screen-only note">Fill this out and send it to us online, or print it to sign by hand and mail it in. Individuals, families, churches, and businesses are all welcome.</p>
+  </div>
+
+  <section style="display:flex;flex-direction:column;gap:16px">
+    <h2>About Unmarked Ministries</h2>
+    <p class="mission">Unmarked Ministries exists to bring healing, freedom, and restored identity to survivors of sex trafficking. Through partnerships with licensed laser technicians and medical professionals, we provide professional tattoo removal services, erasing the marks of exploitation at no cost to survivors. We walk alongside each woman as she reclaims her body, her dignity, and her God-given future.</p>
+    <p>Unmarked Ministries provides free tattoo and branding removal for survivors of sex trafficking, along with connection to counseling, housing advocacy, job support and community. We are raising $120,000 for laser equipment and startup costs. Our goal is 120 partners giving $1,000 each, and gifts of any size are welcome.</p>
+    <div class="facts">
+      <div>Legal name</div><div>Unmarked Ministries, Inc.</div>
+      <div>Tax status</div><div>501(c)(3) public charity, recognized by the IRS</div>
+      <div>EIN</div><div>42-5130485</div>
+      <div>Mailing address</div><div>217 Hobbs St, Suite 106, Tampa, FL 33619</div>
+      <div>Phone</div><div><a href="tel:+18135459453">813-545-9453</a></div>
+      <div>Email</div><div><a href="mailto:info@unmarkedministries.org">info@unmarkedministries.org</a></div>
+      <div>Website</div><div>unmarkedministries.org</div>
+      <div>Contact</div><div>Jess Waldrop, Founder, President</div>
+    </div>
+    <p class="note">Gifts are tax-deductible to the extent allowed by law. A written acknowledgment is sent for every gift.</p>
+  </section>
+
+  <form method="POST" action="https://formsubmit.co/info@unmarkedministries.org" style="display:flex;flex-direction:column;gap:32px">
+    <input type="hidden" name="_subject" value="New giving form from unmarkedministries.org">
+    <input type="hidden" name="_next" value="https://unmarkedministries.org/thank-you.html">
+    <input type="hidden" name="_template" value="table">
+    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+    <h2>Giving Form</h2>
+
+    <fieldset>
+      <legend>Donor information</legend>
+      <div class="grid">
+        <label class="f full">Organization (if giving as a church or business)<input type="text" name="Organization" autocomplete="organization"></label>
+        <label class="f full">Name<input type="text" name="Name" autocomplete="name" required></label>
+        <label class="f full">Address<input type="text" name="Address" autocomplete="street-address"></label>
+        <label class="f full">City, State, ZIP<input type="text" name="City, State, ZIP"></label>
+        <label class="f">Phone<input type="tel" name="Phone" autocomplete="tel"></label>
+        <label class="f">Email<input type="email" name="email" autocomplete="email" required></label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Gift amount</legend>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="Gift amount" value="$1,000 (join The 120)"> $1,000 (join The 120)</label>
+        <label class="opt"><input type="radio" name="Gift amount" value="$2,000 (two seats in The 120)"> $2,000 (two seats in The 120)</label>
+        <label class="opt"><input type="radio" name="Gift amount" value="$500"> $500</label>
+        <label class="opt"><input type="radio" name="Gift amount" value="$85 per month for one year"> $85 per month for one year</label>
+        <label class="opt"><input type="radio" name="Gift amount" value="Other"> Other amount: $<input type="text" class="inline" name="Other amount" inputmode="decimal" aria-label="Other amount"></label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Type of gift</legend>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="Type of gift" value="One-time gift"> One-time gift</label>
+        <label class="opt"><input type="radio" name="Type of gift" value="Recurring yearly"> Recurring yearly</label>
+        <label class="opt"><input type="radio" name="Type of gift" value="Pledge in installments"> Pledge, paid in installments: <input type="text" class="inline" name="Number of payments" inputmode="numeric" aria-label="Number of payments"> payments of $<input type="text" class="inline" name="Payment amount" inputmode="decimal" aria-label="Payment amount"></label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Payment method</legend>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="Payment method" value="Check"> Check payable to Unmarked Ministries, mailed to 217 Hobbs St, Suite 106, Tampa, FL 33619</label>
+        <label class="opt"><input type="radio" name="Payment method" value="Bank transfer"> Bank transfer (ACH or wire): we'll email you secure transfer details</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Recognition</legend>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="Recognition" value="May list as a supporter"> You may list our name as a supporter.</label>
+        <label class="opt"><input type="radio" name="Recognition" value="Keep anonymous"> Please keep our gift anonymous.</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Signature</legend>
+      <div class="sig">
+        <label class="f">Authorized signature <span class="screen-only" style="font-weight:400;color:var(--body)">(type your full name to sign online)</span><input type="text" name="Signature"></label>
+        <label class="f">Date<input type="text" name="Date" placeholder="MM/DD/YYYY"></label>
+        <label class="f full">Printed name<input type="text" name="Printed name"></label>
+      </div>
+    </fieldset>
+
+    <div class="actions">
+      <button type="submit" class="btn solid">Send my giving form</button>
+      <button type="button" class="btn line" onclick="window.print()">Print to sign and mail</button>
+    </div>
+    <p class="thanks">Thank you for helping survivors live unmarked and free.</p>
+  </form>
+</div>
+</main>
+<script>
+{const d=document.querySelector('input[name="Date"]');if(d&&!d.value){const t=new Date();d.placeholder=(t.getMonth()+1+'').padStart(2,'0')+'/'+(t.getDate()+'').padStart(2,'0')+'/'+t.getFullYear();}}
+</script>
+</body>
+</html>
