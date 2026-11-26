@@ -429,9 +429,11 @@ footer{background:var(--teal-dk);color:var(--on-dark-2);padding:72px 0 48px}
       <h2>We'd love to hear from you</h2>
       <p style="font-size:18px;line-height:1.6;color:var(--body)">Claim a seat, ask about partnering, join the prayer team, or make a referral. A real person will get back to you.</p>
     </div>
-    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="company-site" action="thank-you.html">
-      <input type="hidden" name="form-name" value="contact">
-      <p hidden><label>Leave this empty <input name="company-site"></label></p>
+    <form name="contact" method="POST" action="https://formsubmit.co/info@unmarkedministries.org">
+      <input type="hidden" name="_subject" value="New message from unmarkedministries.org">
+      <input type="hidden" name="_next" value="https://unmarkedministries.org/thank-you.html">
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
       <label>Your name<input type="text" name="name" autocomplete="name" required></label>
       <label>Email<input type="email" name="email" autocomplete="email" required></label>
       <label>Phone (optional)<input type="tel" name="phone" autocomplete="tel"></label>
