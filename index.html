@@ -109,6 +109,14 @@ header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid 
 .need-pt{background:#fff;border-radius:18px;padding:26px 28px;border-left:4px solid var(--gold);display:flex;flex-direction:column;gap:6px}
 .need-pt h3{font-size:21px}
 .need-pt p{font-size:16px;line-height:1.6;color:var(--body)}
+.need-goal{background:#fff;border-radius:18px;padding:24px 28px;display:flex;flex-direction:column;gap:12px;border:1.5px solid var(--gold)}
+.need-goal .row{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px}
+.need-goal b{font-family:Lora,Georgia,serif;font-weight:500;font-size:40px;color:var(--teal);line-height:1}
+.need-goal .lbl{font-size:15px;color:var(--body)}
+.need-goal .bar{height:12px;border-radius:999px;background:#EFE6D4}
+.need-goal .bar i{display:block;height:12px;border-radius:999px;background:var(--gold);width:0;transition:width 1s ease}
+.need-goal .raised{font-size:15px;color:var(--gold-dk);font-weight:500}
+@media (prefers-reduced-motion:reduce){.need-goal .bar i{transition:none}}
 .need-close{font-family:Lora,Georgia,serif;font-style:italic;font-size:20px;line-height:1.55;color:var(--teal)}
 @media (max-width:900px){.need-wrap{grid-template-columns:1fr;gap:36px}}
 
@@ -314,6 +322,13 @@ footer{background:var(--teal-dk);color:var(--on-dark-2);padding:72px 0 48px}
       <p class="eyebrow">Our first need</p>
       <h2 id="need-title">The laser that makes freedom visible</h2>
       <p class="lede">Every treatment begins with one machine. Without a professional tattoo-removal laser, we can't remove a single mark. It is the first thing we need, and the one thing everything else depends on.</p>
+      <p class="lede" style="font-size:17px">We're raising funds for a medical-grade picosecond laser, such as the Cutera enlighten III or Candela PicoWay, which clears ink in fewer sessions and treats every skin type.</p>
+      <div class="need-goal" aria-label="Laser fund goal">
+        <div class="row"><b>$90,000</b><span class="lbl">our laser goal</span></div>
+        <!-- Progress shows once LASER_RAISED (bottom of page) is above 0 -->
+        <div class="bar" id="laser-bar" hidden><i></i></div>
+        <p class="raised" id="laser-raised" hidden></p>
+      </div>
       <p class="need-close">When a woman watches the last mark fade, it will be because this community said yes.</p>
       <div class="btn-row">
         <a href="giving-form.html" class="btn btn-solid">Help bring the laser home</a>
@@ -522,9 +537,11 @@ footer{background:var(--teal-dk);color:var(--on-dark-2);padding:72px 0 48px}
 </footer>
 
 <script>
-// ===== UPDATE THIS NUMBER as seats are claimed =====
+// ===== UPDATE THESE NUMBERS as gifts come in =====
 var SEATS_FILLED = 11;
-// ===================================================
+var LASER_GOAL = 90000;
+var LASER_RAISED = 0;
+// ==================================================
 (function(){
   var svg=document.getElementById('pearls'),ns='http://www.w3.org/2000/svg',out='';
   for(var i=0;i<120;i++){
@@ -538,6 +555,15 @@ var SEATS_FILLED = 11;
   svg.innerHTML=out;
   document.getElementById('seat-count').textContent=SEATS_FILLED;
   document.getElementById('yr').textContent=new Date().getFullYear();
+
+  // laser fund progress (hidden until gifts are recorded)
+  if(LASER_RAISED>0){
+    var pct=Math.min(100,Math.round(LASER_RAISED/LASER_GOAL*100));
+    var bar=document.getElementById('laser-bar'),lbl=document.getElementById('laser-raised');
+    bar.hidden=false; lbl.hidden=false;
+    lbl.textContent='$'+LASER_RAISED.toLocaleString('en-US')+' raised \u00b7 '+pct+'% of the way there';
+    requestAnimationFrame(function(){bar.firstElementChild.style.width=pct+'%'});
+  }
 
   // mobile menu
   var btn=document.querySelector('.menu-btn'),links=document.getElementById('nav-links');
