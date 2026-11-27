@@ -12,6 +12,7 @@
 <style>
 :root{--teal:#2F5D5A;--teal-dk:#24403E;--mist:#F3F8F7;--line:#C7D8D5;--gold:#C9A66B;--gold-dk:#8A6D3B;--ink:#24403E;--body:#3D5755}
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{margin:0;font-family:Jost,Arial,sans-serif;color:var(--ink);background:var(--mist);-webkit-font-smoothing:antialiased}
 a{color:var(--teal)}
 header{background:#fff;border-bottom:1px solid #E4ECEA}
@@ -57,22 +58,26 @@ input:focus{outline:2px solid #7FA9A3;border-color:#7FA9A3}
 .fl-disclosure p{line-height:1.6}
 .fl-disclosure .caps{font-size:12px;letter-spacing:.2px}
 /* first need: laser */
-.need{background:#FBF6EC;border-radius:20px;padding:40px;display:flex;flex-direction:column;gap:20px}
-.need h2{border:0;padding:0;font-size:clamp(28px,3.6vw,36px);line-height:1.15}
-.need .lede{font-size:18px;line-height:1.7;color:var(--body)}
-.need-goal{background:#fff;border-radius:16px;padding:22px 26px;display:flex;flex-direction:column;gap:12px;border:1.5px solid var(--gold)}
-.need-goal .row{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px}
-.need-goal b{font-family:Lora,Georgia,serif;font-weight:500;font-size:38px;color:var(--teal);line-height:1}
-.need-goal .lbl{font-size:15px;color:var(--body)}
-.need-goal .bar{height:12px;border-radius:999px;background:#EFE6D4}
+.need{background:var(--teal);color:#fff;border-radius:22px;padding:44px;display:flex;flex-direction:column;gap:30px;box-shadow:0 18px 40px -24px rgba(36,64,62,.6)}
+.need .eyebrow{color:var(--gold-lt);margin-bottom:10px}
+.need h2{color:#fff;border:0;padding:0;font-size:clamp(30px,4vw,40px);line-height:1.15;margin-bottom:14px}
+.need .lede{font-family:Lora,Georgia,serif;font-style:italic;font-size:21px;line-height:1.5;color:#fff;margin-bottom:12px}
+.need .sub{font-size:17px;line-height:1.65;color:#E9F1EF}
+.need-top{display:grid;gap:28px;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:center}
+.need-goal{background:#fff;border-radius:18px;padding:26px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;border:2px solid var(--gold)}
+.need-goal .lbl{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dk);font-weight:500}
+.need-goal b{font-family:Lora,Georgia,serif;font-weight:500;font-size:52px;color:var(--teal);line-height:1}
+.need-goal .bar{width:100%;height:12px;border-radius:999px;background:#EFE6D4}
 .need-goal .bar i{display:block;height:12px;border-radius:999px;background:var(--gold);width:0;transition:width 1s ease}
 .need-goal .raised{font-size:15px;color:var(--gold-dk);font-weight:500}
-.need-points{display:grid;gap:14px;grid-template-columns:repeat(3,minmax(0,1fr))}
-.need-pt{background:#fff;border-radius:14px;padding:20px;border-top:3px solid var(--gold);display:flex;flex-direction:column;gap:6px}
-.need-pt h3{font-size:18px}
-.need-pt p{font-size:15px;line-height:1.55;color:var(--body)}
-.need-close{font-family:Lora,Georgia,serif;font-style:italic;font-size:19px;line-height:1.55;color:var(--teal)}
-@media (max-width:720px){.need{padding:26px 20px}.need-points{grid-template-columns:1fr}}
+.btn.gold{background:var(--gold);border-color:var(--gold);color:var(--teal-dk);margin-top:6px;white-space:nowrap;font-size:16px;padding:13px 24px}
+.btn.gold:hover{background:#B8935A;border-color:#B8935A}
+.need-points{display:grid;gap:16px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.need-pt{background:#3E6E6A;border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:8px}
+.need-pt h3{color:#fff;font-size:19px}
+.need-pt p{font-size:15.5px;line-height:1.55;color:#E9F1EF}
+.need-close{font-family:Lora,Georgia,serif;font-style:italic;font-size:20px;line-height:1.55;color:var(--gold-lt);text-align:center;max-width:620px;margin:0 auto}
+@media (max-width:760px){.need{padding:28px 22px}.need-top,.need-points{grid-template-columns:1fr}.need-goal b{font-size:44px}}
 @media (prefers-reduced-motion:reduce){.need-goal .bar i{transition:none}}
 /* Print: a clean, signable paper form */
 @media print{
@@ -121,19 +126,26 @@ input:focus{outline:2px solid #7FA9A3;border-color:#7FA9A3}
   </div>
 
   <section class="need" id="first-need" aria-labelledby="need-title">
-    <p class="eyebrow">Our first need</p>
-    <h2 id="need-title">The Laser That Makes Freedom Visible</h2>
-    <p class="lede">Every treatment begins with one machine. Without a professional tattoo-removal laser, we can't remove a single mark. It is the first thing we need, and the one thing everything else depends on. We're raising funds for a medical-grade picosecond laser, which clears ink in fewer sessions and treats every skin type.</p>
-    <div class="need-goal" aria-label="Laser fund goal">
-      <div class="row"><b>$90,000</b><span class="lbl">our laser goal</span></div>
-      <!-- Progress shows once LASER_RAISED (bottom of page) is above 0 -->
-      <div class="bar" id="laser-bar" hidden><i></i></div>
-      <p class="raised" id="laser-raised" hidden></p>
+    <div class="need-top">
+      <div class="need-intro">
+        <p class="eyebrow">Our first need</p>
+        <h2 id="need-title">The Laser That Makes Freedom Visible</h2>
+        <p class="lede">Every treatment begins with one machine. Without it, we can't remove a single mark.</p>
+        <p class="sub">We're raising funds for a medical-grade picosecond laser that clears ink in fewer sessions and treats every skin type.</p>
+      </div>
+      <div class="need-goal" aria-label="Laser fund goal">
+        <span class="lbl">Our laser goal</span>
+        <b>$90,000</b>
+        <!-- Progress shows once LASER_RAISED (bottom of page) is above 0 -->
+        <div class="bar" id="laser-bar" hidden><i></i></div>
+        <p class="raised" id="laser-raised" hidden></p>
+        <a href="#give-form" class="btn gold">Give toward the laser</a>
+      </div>
     </div>
     <div class="need-points">
-      <div class="need-pt"><h3>Owned by Our Community</h3><p>Not leased, not borrowed. Purchased by the neighbors, churches, and businesses of Tampa Bay who decided survivors here deserve this care.</p></div>
-      <div class="need-pt"><h3>Used Again and Again</h3><p>One laser serves woman after woman, session after session, for years to come.</p></div>
-      <div class="need-pt"><h3>Free for Every Survivor</h3><p>Because the machine is paid for together, her treatment never has to be.</p></div>
+      <div class="need-pt"><svg width="34" height="34" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="20" fill="#fff" stroke="#C9A66B" stroke-width="3"/><circle cx="22" cy="22" r="5" fill="#EAF2F1"/></svg><h3>Owned by Our Community</h3><p>Not leased or borrowed. Bought by the neighbors, churches, and businesses of Tampa Bay.</p></div>
+      <div class="need-pt"><svg width="34" height="34" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="20" fill="#fff" stroke="#C9A66B" stroke-width="3"/><circle cx="22" cy="22" r="5" fill="#EAF2F1"/></svg><h3>Used Again and Again</h3><p>One laser serves woman after woman, session after session, for years.</p></div>
+      <div class="need-pt"><svg width="34" height="34" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="20" fill="#fff" stroke="#C9A66B" stroke-width="3"/><circle cx="22" cy="22" r="5" fill="#EAF2F1"/></svg><h3>Free for Every Survivor</h3><p>Because we pay for the machine together, her treatment never has to be.</p></div>
     </div>
     <p class="need-close">When a woman watches the last mark fade, it will be because this community said yes.</p>
   </section>
@@ -158,7 +170,7 @@ input:focus{outline:2px solid #7FA9A3;border-color:#7FA9A3}
     </div>
   </section>
 
-  <form method="POST" action="https://api.web3forms.com/submit" style="display:flex;flex-direction:column;gap:32px">
+  <form id="give-form" method="POST" action="https://api.web3forms.com/submit" style="display:flex;flex-direction:column;gap:32px">
     <input type="hidden" name="access_key" value="6fc4c3d0-54f8-4e65-a68c-8790bbff61cc">
       <input type="hidden" name="subject" value="New giving form from unmarkedministries.org">
       <input type="hidden" name="from_name" value="Unmarked Ministries Website">
