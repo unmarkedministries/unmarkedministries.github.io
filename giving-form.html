@@ -46,7 +46,9 @@ input:focus{outline:2px solid #7FA9A3;border-color:#7FA9A3}
 .opt .inline{display:inline-block;width:110px;padding:4px 10px;margin:0 4px;font:inherit;font-size:16px;border:1px solid var(--line);border-radius:8px}
 .sig{display:grid;gap:16px;grid-template-columns:2fr 1fr;align-items:end}
 .actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
-.btn{display:inline-block;text-decoration:none;padding:15px 30px;border-radius:999px;font:500 17px Jost,Arial,sans-serif;border:1.5px solid var(--teal);cursor:pointer}
+.btn{display:inline-block;text-decoration:none;padding:15px 30px;border-radius:999px;font:500 17px Jost,Arial,sans-serif;border:1.5px solid var(--teal);cursor:pointer;transition:background .2s,color .2s,box-shadow .2s,transform .2s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px -8px rgba(36,64,62,.45)}
+.btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 .solid{background:var(--teal);color:#fff}.solid:hover{background:var(--teal-dk)}
 .line{background:#fff;color:var(--teal)}.line:hover{background:var(--mist)}
 .thanks{font-family:Lora,Georgia,serif;font-style:italic;font-size:19px;color:var(--teal);text-align:center}

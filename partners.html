@@ -18,8 +18,10 @@ p{margin:0}
 h1,h2,h3{font-family:Lora,Georgia,serif;font-weight:500;color:var(--teal);margin:0}
 .wrap{max-width:1200px;margin:0 auto;padding:0 32px}
 .eyebrow{margin:0;font-size:14px;letter-spacing:4px;color:var(--gold-dk);font-weight:500;text-transform:uppercase}
-.btn{display:inline-block;text-decoration:none;padding:15px 30px;border-radius:999px;font-size:17px;font-weight:500;border:1.5px solid var(--teal)}
-.btn-white{background:#fff;color:var(--teal);border-color:#fff}.btn-white:hover{background:var(--mist)}
+.btn{display:inline-block;text-decoration:none;padding:15px 30px;border-radius:999px;font-size:17px;font-weight:500;border:1.5px solid var(--teal);cursor:pointer;transition:background .2s,color .2s,border-color .2s,box-shadow .2s,transform .2s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px -8px rgba(36,64,62,.45)}
+.btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.btn-white{background:#fff;color:var(--teal);border-color:#fff}.btn-white:hover{background:var(--gold-lt);border-color:var(--gold-lt);color:var(--teal-dk)}
 .btn-ghost{color:#fff;border-color:#fff}.btn-ghost:hover{background:rgba(255,255,255,.12)}
 .btn-solid{background:var(--teal);color:#fff}.btn-solid:hover{background:var(--teal-dk)}
 
