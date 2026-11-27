@@ -33,7 +33,7 @@ p{margin:0;line-height:1.65}
 .facts div:nth-child(odd){background:var(--mist);color:var(--body);font-weight:500}
 .facts div:nth-last-child(-n+2){border-bottom:0}
 .note{font-size:15px;color:var(--body)}
-fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+fieldset{border:0;margin:0;padding:0;min-width:0;display:flex;flex-direction:column;gap:14px}
 legend{font-family:Lora,Georgia,serif;font-size:19px;color:var(--teal);margin-bottom:12px;padding:0}
 .grid{display:grid;gap:16px;grid-template-columns:repeat(2,minmax(0,1fr))}
 .full{grid-column:1/-1}
@@ -41,7 +41,7 @@ label.f{display:flex;flex-direction:column;gap:6px;font-size:15px;font-weight:50
 input[type=text],input[type=email],input[type=tel],input[type=date]{font:inherit;font-size:16px;color:var(--ink);padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;width:100%}
 input:focus{outline:2px solid #7FA9A3;border-color:#7FA9A3}
 .opts{display:flex;flex-direction:column;gap:10px}
-.opt{display:flex;align-items:flex-start;gap:12px;font-size:16px;line-height:1.5;cursor:pointer}
+.opt{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:16px;line-height:1.5;cursor:pointer}
 .opt input[type=radio]{width:20px;height:20px;margin:2px 0 0;accent-color:var(--teal);flex:none}
 .opt .inline{display:inline-block;width:110px;padding:4px 10px;margin:0 4px;font:inherit;font-size:16px;border:1px solid var(--line);border-radius:8px}
 .sig{display:grid;gap:16px;grid-template-columns:2fr 1fr}
@@ -51,11 +51,29 @@ input:focus{outline:2px solid #7FA9A3;border-color:#7FA9A3}
 .line{background:#fff;color:var(--teal)}.line:hover{background:var(--mist)}
 .thanks{font-family:Lora,Georgia,serif;font-style:italic;font-size:19px;color:var(--teal);text-align:center}
 @media (max-width:640px){.sheet{padding:28px 20px}.grid,.sig{grid-template-columns:1fr}.facts{grid-template-columns:1fr}.facts div:nth-child(odd){border-bottom:0;padding-bottom:2px}}
+/* first need: laser */
+.need{background:#FBF6EC;border-radius:20px;padding:40px;display:flex;flex-direction:column;gap:20px}
+.need h2{border:0;padding:0;font-size:clamp(28px,3.6vw,36px);line-height:1.15}
+.need .lede{font-size:18px;line-height:1.7;color:var(--body)}
+.need-goal{background:#fff;border-radius:16px;padding:22px 26px;display:flex;flex-direction:column;gap:12px;border:1.5px solid var(--gold)}
+.need-goal .row{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px}
+.need-goal b{font-family:Lora,Georgia,serif;font-weight:500;font-size:38px;color:var(--teal);line-height:1}
+.need-goal .lbl{font-size:15px;color:var(--body)}
+.need-goal .bar{height:12px;border-radius:999px;background:#EFE6D4}
+.need-goal .bar i{display:block;height:12px;border-radius:999px;background:var(--gold);width:0;transition:width 1s ease}
+.need-goal .raised{font-size:15px;color:var(--gold-dk);font-weight:500}
+.need-points{display:grid;gap:14px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.need-pt{background:#fff;border-radius:14px;padding:20px;border-top:3px solid var(--gold);display:flex;flex-direction:column;gap:6px}
+.need-pt h3{font-size:18px}
+.need-pt p{font-size:15px;line-height:1.55;color:var(--body)}
+.need-close{font-family:Lora,Georgia,serif;font-style:italic;font-size:19px;line-height:1.55;color:var(--teal)}
+@media (max-width:720px){.need{padding:26px 20px}.need-points{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.need-goal .bar i{transition:none}}
 /* Print: a clean, signable paper form */
 @media print{
   @page{margin:0.5in 0.6in}
   body{background:#fff;font-size:11pt}
-  header .back,.actions,.screen-only{display:none!important}
+  header .back,.actions,.screen-only,.need{display:none!important}
   header{border:0}
   main{padding:0}
   .sheet{padding:0;border-radius:0;gap:18px}
@@ -95,6 +113,24 @@ input:focus{outline:2px solid #7FA9A3;border-color:#7FA9A3}
     <h1>Giving Form</h1>
     <p class="screen-only note">Fill this out and send it to us online, or print it to sign by hand and mail it in. Individuals, families, churches, and businesses are all welcome.</p>
   </div>
+
+  <section class="need" id="first-need" aria-labelledby="need-title">
+    <p class="eyebrow">Our first need</p>
+    <h2 id="need-title">The laser that makes freedom visible</h2>
+    <p class="lede">Every treatment begins with one machine. Without a professional tattoo-removal laser, we can't remove a single mark. It is the first thing we need, and the one thing everything else depends on. We're raising funds for a medical-grade picosecond laser, which clears ink in fewer sessions and treats every skin type.</p>
+    <div class="need-goal" aria-label="Laser fund goal">
+      <div class="row"><b>$90,000</b><span class="lbl">our laser goal</span></div>
+      <!-- Progress shows once LASER_RAISED (bottom of page) is above 0 -->
+      <div class="bar" id="laser-bar" hidden><i></i></div>
+      <p class="raised" id="laser-raised" hidden></p>
+    </div>
+    <div class="need-points">
+      <div class="need-pt"><h3>Owned by our community</h3><p>Not leased, not borrowed. Purchased by the neighbors, churches, and businesses of Tampa Bay who decided survivors here deserve this care.</p></div>
+      <div class="need-pt"><h3>Used again and again</h3><p>One laser serves woman after woman, session after session, for years to come.</p></div>
+      <div class="need-pt"><h3>Free for every survivor</h3><p>Because the machine is paid for together, her treatment never has to be.</p></div>
+    </div>
+    <p class="need-close">When a woman watches the last mark fade, it will be because this community said yes.</p>
+  </section>
 
   <section style="display:flex;flex-direction:column;gap:16px">
     <h2>About Unmarked Ministries</h2>
@@ -186,6 +222,17 @@ input:focus{outline:2px solid #7FA9A3;border-color:#7FA9A3}
 </div>
 </main>
 <script>
+// ===== UPDATE THESE NUMBERS as laser gifts come in =====
+var LASER_GOAL = 90000;
+var LASER_RAISED = 0;
+// =======================================================
+{if(LASER_RAISED>0){
+  const pct=Math.min(100,Math.round(LASER_RAISED/LASER_GOAL*100));
+  const bar=document.getElementById('laser-bar'),lbl=document.getElementById('laser-raised');
+  bar.hidden=false; lbl.hidden=false;
+  lbl.textContent='$'+LASER_RAISED.toLocaleString('en-US')+' raised \u00b7 '+pct+'% of the way there';
+  requestAnimationFrame(()=>{bar.firstElementChild.style.width=pct+'%'});
+}}
 {const d=document.querySelector('input[name="Date"]');if(d&&!d.value){const t=new Date();d.placeholder=(t.getMonth()+1+'').padStart(2,'0')+'/'+(t.getDate()+'').padStart(2,'0')+'/'+t.getFullYear();}}
 </script>
 </body>
