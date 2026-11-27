@@ -53,6 +53,9 @@ input:focus{outline:2px solid #7FA9A3;border-color:#7FA9A3}
 .line{background:#fff;color:var(--teal)}.line:hover{background:var(--mist)}
 .thanks{font-family:Lora,Georgia,serif;font-style:italic;font-size:19px;color:var(--teal);text-align:center}
 @media (max-width:640px){.sheet{padding:28px 20px}.grid,.sig{grid-template-columns:1fr}.facts{grid-template-columns:1fr}.facts div:nth-child(odd){border-bottom:0;padding-bottom:2px}}
+.fl-disclosure{border:1px solid #E4ECEA;border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;font-size:13px;line-height:1.6;color:var(--body);background:#FAFCFB}
+.fl-disclosure p{line-height:1.6}
+.fl-disclosure .caps{font-size:12px;letter-spacing:.2px}
 /* first need: laser */
 .need{background:#FBF6EC;border-radius:20px;padding:40px;display:flex;flex-direction:column;gap:20px}
 .need h2{border:0;padding:0;font-size:clamp(28px,3.6vw,36px);line-height:1.15}
@@ -94,6 +97,7 @@ input:focus{outline:2px solid #7FA9A3;border-color:#7FA9A3}
   .opt .inline{border:0;border-bottom:1px solid #000;border-radius:0;width:90px}
   ::placeholder{color:transparent}
   .thanks{font-size:11pt;margin-top:4px}
+  .fl-disclosure{font-size:8pt;padding:8px 10px;gap:4px}.fl-disclosure .caps{font-size:7.5pt}
 }
 </style>
 </head>
@@ -148,6 +152,10 @@ input:focus{outline:2px solid #7FA9A3;border-color:#7FA9A3}
       <div>Contact</div><div>Jess Waldrop, Founder, President</div>
     </div>
     <p class="note">Gifts are tax-deductible to the extent allowed by law. A written acknowledgment is sent for every gift.</p>
+    <div class="fl-disclosure">
+      <p>Unmarked Ministries, Inc., a Florida nonprofit corporation (Tampa, Florida), solicits contributions to provide free tattoo removal and wraparound care for survivors of sex trafficking. Unmarked Ministries, Inc. does not use a professional solicitor; 100% of each contribution is received by Unmarked Ministries, Inc.<span class="fl-reg" hidden> Florida registration number: <span class="fl-reg-num"></span>.</span></p>
+      <p class="caps">A COPY OF THE OFFICIAL REGISTRATION AND FINANCIAL INFORMATION MAY BE OBTAINED FROM THE DIVISION OF CONSUMER SERVICES BY CALLING TOLL-FREE (800-435-7352) WITHIN THE STATE OR VISITING <a href="https://www.FloridaConsumerHelp.com" target="_blank" rel="noopener">www.FloridaConsumerHelp.com</a>. REGISTRATION DOES NOT IMPLY ENDORSEMENT, APPROVAL, OR RECOMMENDATION BY THE STATE.</p>
+    </div>
   </section>
 
   <form method="POST" action="https://api.web3forms.com/submit" style="display:flex;flex-direction:column;gap:32px">
@@ -228,7 +236,10 @@ input:focus{outline:2px solid #7FA9A3;border-color:#7FA9A3}
 // ===== UPDATE THESE NUMBERS as laser gifts come in =====
 var LASER_GOAL = 90000;
 var LASER_RAISED = 0;
+// Florida charity registration number from FDACS (e.g. "CH12345"). Leave "" until issued.
+var FL_REG_NUMBER = "";
 // =======================================================
+{if(FL_REG_NUMBER){document.querySelectorAll('.fl-reg').forEach(e=>{e.hidden=false;e.querySelector('.fl-reg-num').textContent=FL_REG_NUMBER;});}}
 {if(LASER_RAISED>0){
   const pct=Math.min(100,Math.round(LASER_RAISED/LASER_GOAL*100));
   const bar=document.getElementById('laser-bar'),lbl=document.getElementById('laser-raised');
